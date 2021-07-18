@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sburb_splash.png-4b6b7d292773e4adc582356529ff8c72.stex"
+path="res://.import/spirograph_splash.png-eda4a28f105ca98441fcbd216cf70dba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sburb_splash.png"
-dest_files=[ "res://.import/sburb_splash.png-4b6b7d292773e4adc582356529ff8c72.stex" ]
+source_file="res://spirograph_splash.png"
+dest_files=[ "res://.import/spirograph_splash.png-eda4a28f105ca98441fcbd216cf70dba.stex" ]
 
 [params]
 

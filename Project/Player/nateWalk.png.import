@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/johnWalk.png-fc052e5378cbcdafca91db19d6068921.stex"
+path="res://.import/nateWalk.png-716df72ee0d75aac9973e5a01158869c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/johnWalk.png"
-dest_files=[ "res://.import/johnWalk.png-fc052e5378cbcdafca91db19d6068921.stex" ]
+source_file="res://Player/nateWalk.png"
+dest_files=[ "res://.import/nateWalk.png-716df72ee0d75aac9973e5a01158869c.stex" ]
 
 [params]
 
