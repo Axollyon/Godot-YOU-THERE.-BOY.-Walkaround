@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -9,9 +9,12 @@
 [ext_resource path="res://Rooms/Hallway/lockers.png" type="Texture" id=7]
 [ext_resource path="res://Rooms/Hallway/radiator.png" type="Texture" id=8]
 [ext_resource path="res://Rooms/Hallway/doors.png" type="Texture" id=9]
+[ext_resource path="res://Audio/Songs/empty.wav" type="AudioStream" id=10]
+[ext_resource path="res://Rooms/Hallway/flameborhood.png" type="Texture" id=11]
 
 [node name="Hallway" type="Node2D"]
 script = ExtResource( 3 )
+bgmTrack = ExtResource( 10 )
 
 [node name="Background" type="ColorRect" parent="."]
 margin_left = -1010.0
@@ -37,20 +40,7 @@ texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Hallway"]
 position = Vector2( -210, 1292 )
-polygon = PoolVector2Array( 1049.26, 572.037, 1049.26, 486.414, 474.684, 264.6, 186.51, 142.762, -35.9685, 34.7937, -491.546, -179.315, -875.718, -389.952, -574, -507.5, -384.086, -572.423, -299.238, -542.151, -114.683, -464.369, 74.8219, -392.244, 238.981, -324.703, 382.641, -276.287, 550.112, -211.204, 696.946, -151.676, 826.319, -92.1485, 954.105, -43.7328, 1501.91, 173.718, 1586.8, -967.975, -1103.69, -1024.77, -1026.67, 381.185 )
-
-[node name="Rubble" type="StaticBody2D" parent="YSort"]
-position = Vector2( 1205, 504 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="YSort/Rubble"]
-position = Vector2( 0, -275 )
-texture = ExtResource( 6 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Rubble"]
-polygon = PoolVector2Array( -165.426, 36.8473, 390.36, -359.133, 230.406, -403.611, 157.303, -378.184, 118.103, -330.508, 59.8323, -320.973, 2.99988, -276.224, -57.7681, -259.524, -92.7303, -204.432, -157.358, -182.184, -184.904, -127.091, -266.482, -115.437, -342.764, -39.156 )
+polygon = PoolVector2Array( 1049.26, 572.037, 1049.26, 486.414, 474.684, 264.6, 186.51, 142.762, -35.9685, 34.7937, -491.546, -179.315, -875.718, -389.952, -574, -507.5, -384.086, -572.423, -299.238, -542.151, -114.683, -464.369, 74.8219, -392.244, 238.981, -324.703, 869.189, -74.3575, 954.105, -43.7328, 1501.91, 173.718, 1586.8, -967.975, -1103.69, -1024.77, -1026.67, 381.185 )
 
 [node name="Lockers" type="StaticBody2D" parent="YSort"]
 position = Vector2( 286, -264 )
@@ -65,6 +55,24 @@ texture = ExtResource( 7 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Lockers"]
 polygon = PoolVector2Array( 538.054, 216.206, 603.137, 172.949, 74.4861, -43.1821, -0.868927, -7.22125, 125.329, 45.9567, 184.857, 67.7834, 245.178, 90.8008, 296.372, 112.628, 413.046, 162.631, 451.541, 180.489 )
 
+[node name="LockersInteract" type="Area2D" parent="YSort/Lockers"]
+position = Vector2( -765, -255 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Inspect these stacked boxes."
+width = 270
+dialogOrScene = "It's a bunch of LOCKERS, for storing books, supplies, and
+eternally-hidden confessions in.
+
+You feel sorry for anyone that had to walk upstairs to get to
+theirs, only to walk straight back down again to a classroom."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Lockers/LockersInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 897.756, -721.617, 928.131, -736.617, 941.561, -742.55, 950.086, -741.212, 962.991, -735.909, 969.531, -734.671, 995.341, -723.181, 1001.7, -721.943, 1005.77, -718.938, 1021.68, -712.574, 1034.41, -706.034, 1080.02, -688.533, 1108.89, -679.242, 1110.56, -677.073, 1175.3, -656.049, 1176.3, -653.546, 1200.66, -643.701, 1214.01, -636.86, 1219.01, -633.523, 1243.26, -622.992, 1267.38, -612.242, 1272.63, -611.117, 1290.51, -602.117, 1292.88, -603.242, 1295.76, -602.617, 1294.38, -600.242, 1305.63, -595.367, 1311.14, -594.095, 1360.4, -572.906, 1365.7, -571.582, 1416.02, -549.863, 1423.44, -548.009, 1478.23, -523.111, 1477.84, -520.531, 1483.19, -515.372, 1484.19, -490.767, 1484.19, -412.389, 1482.8, -397.508, 1484.19, -389.769, 1484.08, -322.202, 1468.93, -314.085, 1460.46, -305.931, 1439.13, -293.167, 1428, -299.127, 1409.46, -305.749, 1390.42, -313.472, 1380.86, -316.211, 1362.04, -323.194, 1350.84, -327.442, 1330.28, -337.128, 1329.02, -338.939, 1310.06, -347.601, 1303.71, -347.402, 1274.5, -360.46, 1258, -367.372, 1251.68, -369.156, 1249.93, -372.007, 1225.16, -382.57, 1178.77, -404.762, 1138.06, -421.948, 1128.05, -425.452, 1117.13, -429.631, 1110.12, -430.632, 1044.21, -457.496, 1037.42, -457.504, 952.119, -493.808, 931.851, -502.939, 921.829, -506.503, 903.948, -513.487, 899.583, -516.555, 896.869, -520.92, 898.776, -528.146, 900.781, -582.714, 899.006, -610.867, 899.256, -682.867, 897.506, -706.117 )
+
 [node name="Radiator" type="StaticBody2D" parent="YSort"]
 position = Vector2( -479, -519 )
 __meta__ = {
@@ -78,6 +86,161 @@ texture = ExtResource( 8 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Radiator"]
 polygon = PoolVector2Array( -49.3629, -24.5655, -238.144, 54.4788, -199.463, 73.8194, -158.259, 67.0922, -5.21579, -4.80444 )
 
+[node name="RadiatorInteract" type="Area2D" parent="YSort/Radiator"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Check out this metal thing."
+width = 265
+dialogOrScene = "It's a RADIATOR! The best friend of any freezing kid in the winter.
+These months it just kind of sits there doing nothing, though."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Radiator/RadiatorInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( -82.2768, -813.69, -74.1473, -818.033, -61.3406, -817.921, -61.1179, -819.703, -53.768, -825.828, -42.8545, -829.726, -30.6046, -829.726, -26.4842, -836.408, -18.489, -840.949, 1.01227, -842.43, 4.72852, -845.998, 16.472, -850.755, 25.2424, -851.498, 26.4316, -854.173, 38.3235, -857.741, 50.8102, -858.038, 58.54, -863.241, 67.905, -866.66, 81.8782, -868.741, 90.7972, -874.687, 108.168, -874.54, 123.662, -869.508, 129.887, -849.246, 130.946, -832.294, 131.741, -825.143, 132.536, -796.537, 134.919, -791.24, 133.33, -779.983, 126.841, -770.58, 119.027, -763.561, 105.651, -762.237, 102.076, -757.204, 94.3945, -753.099, 86.9783, -752.569, 82.8729, -754.026, 75.3243, -744.888, 63.2726, -739.591, 54.6644, -739.458, 50.9564, -734.293, 43.4077, -728.599, 36.3887, -726.612, 32.5482, -726.612, 27.1184, -728.996, 23.1831, -720.821, 15.4933, -717.197, 7.89191, -711.629, -1.2121, -711.187, -4.12891, -712.689, -5.26917, -717.207, -5.80829, -708.712, -9.69733, -703.497, -24.1047, -697.486, -32.5899, -697.31, -35.8603, -698.989, -37.8817, -701.649, -43.0729, -694.216, -57.939, -690.677, -68.2036, -692.446, -72.0971, -696.222, -72.451, -700.233, -77.8783, -698.582, -84.9574, -698.464, -89.2048, -703.301, -91.52, -711.348, -92.2995, -719.923, -92.1882, -764.802, -91.186, -780.615, -89.1813, -790.526, -88.179, -796.874, -86.5086, -796.985, -86.1745, -804.892 )
+
+[node name="WindowInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Look out of this window."
+width = 240
+dialogOrScene = "...Yep.
+
+It's fucked out there."
+warpPos = Vector2( 4, 240 )
+zoomImage = ExtResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/WindowInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 176.006, -1135.12, 178.407, -1100.97, 176.534, -1040.29, 178.033, -939.157, 172.414, -936.161, 174.287, -929.044, 126.341, -908.442, 34.1951, -876.228, -144.103, -817.795, -163.207, -827.908, -186.628, -819.024, -187.962, -1035.94, -50.9849, -1078.35, -41.7442, -1078.87, 45.2558, -1102.37, 67.2558, -1107.62, 80.5058, -1112.62, 102.256, -1117.12, 157.506, -1133.37 )
+
+[node name="AcrossDoorInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Open this door."
+width = 170
+dialogOrScene = "It's locked.
+
+Figures. It always feels like you and your TEACHER are the only ones
+in the whole building after classes."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/AcrossDoorInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 499.506, -1072.12, 499.128, -711.146, 374.111, -765.708, 371.584, -1114.54 )
+
+[node name="SignInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Read whatever's on here."
+width = 240
+dialogOrScene = "Looks like this is the Spanish room.
+
+You haven't had to take this class yet, but you've heard horror
+stories about the teacher treating students like babies, passed down
+from the older kids."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/SignInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 574.732, -932.217, 573.618, -872.304, 570.277, -830.655, 515.71, -854.709, 516.378, -873.641, 515.487, -939.345, 516.823, -954.935, 550.9, -942.685, 554.687, -940.013, 564.264, -938.676 )
+
+[node name="BoardInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Look at this board."
+width = 200
+dialogOrScene = "These things are so corny, always with some pun made out of paper
+letters for the current time of year.
+
+Easter was yesterday, so this was about to go through an awkward
+stretch without a holiday to riff on until Mother's Day. Now,
+though, it'll probably be Easter forever."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/BoardInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 884.955, -871.571, 887.844, -850.319, 885.168, -833.67, 881.997, -683.982, 861.255, -690.747, 830.545, -702.716, 804.716, -713.11, 802.039, -716.26, 800.306, -715.157, 770.383, -726.182, 745.342, -737.836, 696.678, -754.845, 654.943, -772.799, 637.88, -783.232, 637.141, -967.11, 657.369, -961.491, 708.873, -941.826, 730.036, -933.398, 743.896, -929.652, 774.986, -915.793, 803.828, -907.927, 835.854, -894.442 )
+
+[node name="BellInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Gaze upwards at the round object."
+width = 310
+dialogOrScene = "Ah, the bell. The single-handed savior of the majority of your
+sanity, even if your TEACHER claims otherwise.
+
+It'll always be there for you, or at least in spirit if you'll
+never get to hear its ring again."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/BellInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 1219.59, -768.329, 1216.72, -768.596, 1216.51, -765.288, 1210.59, -757.362, 1206.5, -756.778, 1209.92, -754.776, 1209.59, -753.19, 1206.92, -753.19, 1202.24, -746.516, 1196.24, -740.51, 1194.24, -739.342, 1165.95, -739.355, 1158.79, -740.481, 1151.64, -742.401, 1147.21, -745.116, 1141.71, -751.539, 1138.76, -758.117, 1134.51, -775.117, 1134.51, -787.117, 1137.26, -803.117, 1141.51, -814.117, 1149.51, -821.367, 1153.67, -823.776, 1161.51, -826.117, 1174.51, -828.117, 1187.01, -826.867, 1196.26, -822.367, 1197.66, -819.544, 1200.45, -817.985, 1204.26, -812.367, 1208.76, -805.117, 1207.79, -802.283, 1209.02, -801.169, 1214.92, -801.169, 1217.71, -797.94, 1217.04, -794.599, 1217.71, -788.808, 1216.48, -786.135, 1217.71, -784.465 )
+
+[node name="StairsInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Do a sick slide down the railing."
+width = 310
+dialogOrScene = "Nope, too bad, this hallway is the only room I've made so far!"
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StairsInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 1864.47, -176.262, 1860.81, -172.395, 1859.04, -178.648, 1860.69, -180.536, 1859.75, -185.137, 1859.04, -197.526, 1859.63, -205.903, 1856.8, -204.959, 1848.65, -209.442, 1844.05, -210.504, 1826.24, -218.881, 1826.24, -215.695, 1818.92, -220.179, 1813.5, -218.999, 1737.79, -251.13, 1736.73, -240.877, 1738.53, -235.4, 1736.14, -233.153, 1731.36, -231.312, 1719.59, -231.312, 1707.16, -235.483, 1705.86, -241.273, 1707.02, -261.139, 1601.84, -305.747, 1570.97, -286.225, 1570.2, -373.155, 1568.7, -392.844, 1570.71, -416.419, 1568.62, -473.76, 1569.4, -504.162, 1567.94, -593.117, 1570.57, -596.867, 1570.69, -608.14, 1569.74, -620.928, 1570.57, -631.782, 1569.76, -641.08, 1571.3, -641.205, 1571.54, -643.069, 1578.53, -644.408, 1581.26, -642.275, 1584.32, -642.111, 1587.37, -639.901, 1591.82, -638.429, 1674.25, -603.902, 1732.61, -581.665, 1735.28, -579.733, 1765.9, -568.138, 1771.55, -565.017, 1779.4, -562.977, 1803.27, -551.31, 1860.75, -522.093, 1861.6, -518.445, 1865.38, -516.902, 1866.79, -511.29, 1863, -512.973, 1864.4, -504.695, 1864.08, -440.486, 1861.96, -383.536, 1863.81, -311.278, 1866.44, -295.374, 1864.44, -294.373, 1864.77, -268.511, 1866.44, -245.652, 1864.1, -242.481, 1865.27, -221.624, 1867.47, -220.517, 1864.47, -215.792, 1864.47, -208.39, 1866.68, -206.5, 1864, -196.421 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -610, -302 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+position = Vector2( 90, -100 )
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Rubble" type="StaticBody2D" parent="YSort"]
+position = Vector2( 1205, 504 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Rubble"]
+position = Vector2( 0, -275 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Rubble"]
+polygon = PoolVector2Array( -165.426, 36.8473, 390.36, -359.133, 230.406, -403.611, 157.303, -378.184, 118.103, -330.508, 59.8323, -320.973, 2.99988, -276.224, -57.7681, -259.524, -92.7303, -204.432, -157.358, -182.184, -184.904, -127.091, -266.482, -115.437, -342.764, -39.156 )
+
+[node name="RubbleInteract" type="Area2D" parent="YSort/Rubble"]
+position = Vector2( -1684, -1023 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Look at all this rubble."
+width = 240
+dialogOrScene = "Oh man, the school itself is collapsing, too. At this point, you
+should probably just be glad you weren't crushed while you were
+knocked out earlier.
+
+...You pinch yourself. Nothing happens."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Rubble/RubbleInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 1543.21, 82.8908, 1557.03, 86.5673, 1572.18, 91.2445, 1577.97, 93.8058, 1593.4, 56.3174, 1608.76, 22.2581, 1614.35, 12.4756, 1619.04, 1.58548, 1622.91, -1.97672, 1634.14, -7.12715, 1644.88, -9.11688, 1643.38, -12.8669, 1642.13, -18.6169, 1632.63, -40.6169, 1632.38, -45.6169, 1630.39, -48.7453, 1631.16, -52.1127, 1630.32, -58.0056, 1632.31, -59.2866, 1632.98, -61.9623, 1635.96, -65.084, 1636.92, -67.0908, 1639.3, -69.3949, 1647.4, -63.8668, 1647.96, -62.1964, 1652.63, -62.1964, 1654.75, -64.9804, 1656.38, -65.4919, 1657.13, -67.6794, 1656.07, -75.4919, 1654.57, -77.6169, 1653.63, -84.6794, 1658.07, -90.9919, 1659.69, -93.9919, 1664.63, -97.9919, 1669.19, -97.8531, 1689.98, -92.026, 1699.25, -90.4369, 1752.35, -70.7043, 1789.17, -56.0043, 1792.82, -64.9425, 1825.9, -104.365, 1844.01, -123.301, 1843.56, -125.606, 1847.38, -128.817, 1851.79, -129.92, 1880.45, -130.235, 1885.72, -146.062, 1890.73, -158.197, 1893.93, -163.771, 1897.42, -169.569, 1899.32, -179.518, 1898.9, -210.211, 1898.27, -220.236, 1895.75, -222.317, 1893.22, -229.898, 1894.33, -233.02, 1895.82, -236.811, 1921.75, -278.737, 1926.67, -286.935, 1930.8, -295.843, 1933.93, -298.144, 1934.69, -300.149, 1941.85, -301.98, 1948.98, -301.09, 1959.35, -302.801, 1992.81, -302.924, 2033.12, -296.9, 2042.77, -278.452, 2047.26, -273.395, 2049.42, -269.308, 2052.63, -269.508, 2058.94, -274.91, 2064.13, -276.804, 2089, -289.897, 2090.12, -293.174, 2095.08, -292.238, 2096.63, -289.867, 2111.26, -281.492, 2124.38, -270.992, 2133.88, -262.867, 2142.26, -255.492, 2142.38, -252.617, 2148.26, -246.492, 2151.01, -221.78, 2147.36, -209.292, 2147.36, -172.111, 2167.59, -141.831, 2165.7, -106.71, 2168.08, -103.337, 2155.01, -94.0728, 2147.07, -90.9972, 2139.83, -89.8066, 2128.79, -84.8673, 2105.98, -81.2233, 2104.86, -75.2097, 2093.28, -74.8757, 2085.71, -69.5303, 2085.55, -67.0121, 2076.2, -55.666, 2069.43, -53.9286, 2041.93, -20.2547, 2037.16, -20.8159, 2031.35, -15.3177, 2034.35, -9.31088, 2032.68, 0.19986, 2030.01, 1.20099, 2022.44, 14.9125, 2008.06, 21.9566, 1998.24, 24.04, 1965.16, 45.7825, 1967.59, 55.7088, 1959.54, 59.8291, 1962.54, 66.9461, 1963.66, 77.9961, 1952.8, 89.7953, 1949.24, 99.347, 1938.19, 99.7216, 1927.7, 96.3504, 1927.51, 99.347, 1875.64, 103.655, 1859.53, 124.256, 1849.15, 129.538, 1832.28, 130.53, 1832.68, 125.966, 1816.01, 122.395, 1808.7, 125.257, 1776.77, 162.744, 1763.84, 179.541, 1723.41, 183.704, 1705.57, 192.177, 1699.98, 207.544, 1700.87, 211.706, 1647.5, 218.544, 1627.14, 218.396, 1580.29, 258.899, 1570.78, 263.804, 1557.25, 267.075, 1548.33, 262.169, 1533.17, 247.156, 1505.52, 225.304, 1499.41, 221.247, 1492.16, 213.889, 1485.32, 210.841, 1483.12, 208.108, 1480.38, 206.321, 1476.28, 202.853, 1471.76, 203.904, 1471.97, 196.861, 1475.8, 168.066, 1481.64, 140.173, 1482.76, 139.18, 1485.68, 132.955, 1489.25, 129.711, 1489.65, 128.188, 1491.5, 127.724, 1492.72, 125.252, 1494.48, 124.54, 1501.78, 117.174, 1502.9, 115.14, 1529.29, 88.1616, 1531.34, 87.636, 1534.62, 84.1423, 1537.62, 83.1411 )
+
 [node name="Doors" type="Node2D" parent="YSort"]
 position = Vector2( -137, 413 )
 __meta__ = {
@@ -88,26 +251,38 @@ __meta__ = {
 position = Vector2( 130, -588 )
 texture = ExtResource( 9 )
 
-[node name="JohnsRoomDoor" type="Area2D" parent="YSort"]
+[node name="StartDoorInteract" type="Area2D" parent="YSort/Doors"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 4 )
-command = "> BOY, GO IN HERE."
-width = 200
-isWarp = true
-dialogOrScene = "res://Rooms/John's Room/John's Room.tscn"
+command = "> Go into this room."
+width = 190
+dialogOrScene = "You just walked *out* of this room, genius! 
+
+It's not like you'd be going back for the TIMES TABLES you left on
+the floor, either. Time is of the essence, and you wouldn't be
+caught actually doing them even if you did have time."
 warpPos = Vector2( 4, 240 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/JohnsRoomDoor"]
-position = Vector2( -655.701, 1543.04 )
-polygon = PoolVector2Array( -113.625, -888, 14.875, -908.125, 15.4813, -575.107, -108.691, -535.821, -114.584, -537.645 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Doors/StartDoorInteract"]
+position = Vector2( -477.506, -165.883 )
+polygon = PoolVector2Array( -122.043, -959.561, 20.942, -896.517, 15.5965, -711.21, 16.0004, -487.141, -65.3781, -525.305, -127.114, -560.101, -125.426, -740.543 )
 
-[node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( -610, -302 )
+[node name="FarDoorInteract" type="Area2D" parent="YSort/Doors"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Try this door instead."
+width = 225
+dialogOrScene = "Yeah, nope. This one's locked, too.
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
-position = Vector2( 90, -100 )
-remote_path = NodePath("../../../Camera2D")
+It's too bad, maybe you could've grabbed some scissors or something
+to defend yourself with."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Doors/FarDoorInteract"]
+position = Vector2( -477.506, -165.883 )
+polygon = PoolVector2Array( 1177.97, -359.526, 1194.51, -355.207, 1215.45, -348.08, 1241.73, -336.721, 1245.52, -336.944, 1257.65, -332.174, 1317.01, -303.09, 1339.41, -294.416, 1342.82, -284.979, 1343.04, -161.208, 1340.51, -81.1169, 1341.68, -65.4874, 1340.09, 54.7616, 1337.97, 119.654, 1284.43, 96.5992, 1265.69, 89.1745, 1250.14, 84.2248, 1228.39, 76.4466, 1209.23, 68.4184, 1188.18, 60.6128, 1175.84, 55.5587, 1171.97, 52.1397, 1168.7, 44.7072, 1168.7, 41.437, 1170.41, 38.8356, 1170.64, 34.5247, 1170.74, -88.1196, 1171.69, -93.7105, 1170.74, -97.8052, 1170.76, -147.492, 1171.76, -151.617, 1171.88, -182.492, 1173.51, -185.242, 1172.26, -188.117, 1171.7, -208.849, 1172.5, -215.338, 1171.44, -232.687, 1173.75, -259.911, 1174.64, -302.161, 1176.01, -322.867, 1175.76, -342.992 )
 
 [node name="UI" parent="." instance=ExtResource( 1 )]
 
@@ -127,5 +302,25 @@ drag_margin_top = 0.05
 drag_margin_right = 0.1
 drag_margin_bottom = 0.05
 
-[connection signal="mouse_entered" from="YSort/JohnsRoomDoor" to="YSort/JohnsRoomDoor" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="YSort/JohnsRoomDoor" to="YSort/JohnsRoomDoor" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/Lockers/LockersInteract" to="YSort/Lockers/LockersInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/Lockers/LockersInteract" to="YSort/Lockers/LockersInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/Radiator/RadiatorInteract" to="YSort/Radiator/RadiatorInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/Radiator/RadiatorInteract" to="YSort/Radiator/RadiatorInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/WindowInteract" to="YSort/WindowInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/WindowInteract" to="YSort/WindowInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/AcrossDoorInteract" to="YSort/AcrossDoorInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/AcrossDoorInteract" to="YSort/AcrossDoorInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/SignInteract" to="YSort/SignInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/SignInteract" to="YSort/SignInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/BoardInteract" to="YSort/BoardInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/BoardInteract" to="YSort/BoardInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/BellInteract" to="YSort/BellInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/BellInteract" to="YSort/BellInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/StairsInteract" to="YSort/StairsInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/StairsInteract" to="YSort/StairsInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/Rubble/RubbleInteract" to="YSort/Rubble/RubbleInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/Rubble/RubbleInteract" to="YSort/Rubble/RubbleInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/Doors/StartDoorInteract" to="YSort/Doors/StartDoorInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/Doors/StartDoorInteract" to="YSort/Doors/StartDoorInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/Doors/FarDoorInteract" to="YSort/Doors/FarDoorInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/Doors/FarDoorInteract" to="YSort/Doors/FarDoorInteract" method="_on_mouse_exited"]

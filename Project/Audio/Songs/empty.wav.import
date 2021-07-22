@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/wind.wav-68bdfe45999d572694b48c8dc7c016ac.sample"
+path="res://.import/empty.wav-28262d9fbe24fb54c3995d3eb22ad983.sample"
 
 [deps]
 
-source_file="res://Audio/Songs/wind.wav"
-dest_files=[ "res://.import/wind.wav-68bdfe45999d572694b48c8dc7c016ac.sample" ]
+source_file="res://Audio/Songs/empty.wav"
+dest_files=[ "res://.import/empty.wav-28262d9fbe24fb54c3995d3eb22ad983.sample" ]
 
 [params]
 

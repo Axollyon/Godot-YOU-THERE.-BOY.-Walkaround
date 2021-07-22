@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/oil.jpg-86da60b2cb7892e0efe7260756d47b57.stex"
+path="res://.import/flameborhood.png-7ef8b7b5a40c33803cbeb232f247e8c7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Zooms/oil.jpg"
-dest_files=[ "res://.import/oil.jpg-86da60b2cb7892e0efe7260756d47b57.stex" ]
+source_file="res://Rooms/Hallway/flameborhood.png"
+dest_files=[ "res://.import/flameborhood.png-7ef8b7b5a40c33803cbeb232f247e8c7.stex" ]
 
 [params]
 
