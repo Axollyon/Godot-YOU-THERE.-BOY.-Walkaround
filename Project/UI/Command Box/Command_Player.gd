@@ -10,6 +10,7 @@ var color = "#ffffff"
 var isWarp = false;
 var dialogOrScene = "";
 var warpPos = Vector2.ZERO;
+var warpFlip = false;
 var zoomImage;
 
 var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
@@ -45,7 +46,7 @@ func _on_gui_input(event):
 	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		Global.remove_commands();
 		if (isWarp):
-			Global.fadeto_scene(dialogOrScene, warpPos);
+			Global.fadeto_scene(dialogOrScene, warpPos, warpFlip);
 		elif (zoomImage && Global.imagesNode):
 			var imageBoxInstance = imageBox.instance();
 			Global.imagesNode.add_child(imageBoxInstance);

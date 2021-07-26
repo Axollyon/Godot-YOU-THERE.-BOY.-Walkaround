@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flameborhood.png-7ef8b7b5a40c33803cbeb232f247e8c7.stex"
+path="res://.import/doors.png-774c00c5d233f4b0f2ae2b8ef36812e7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Hallway/flameborhood.png"
-dest_files=[ "res://.import/flameborhood.png-7ef8b7b5a40c33803cbeb232f247e8c7.stex" ]
+source_file="res://Rooms/Second Floor/doors.png"
+dest_files=[ "res://.import/doors.png-774c00c5d233f4b0f2ae2b8ef36812e7.stex" ]
 
 [params]
 

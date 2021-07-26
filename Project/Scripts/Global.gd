@@ -25,6 +25,7 @@ var fadeScene = "";
 var fading = false;
 var fadedOut = false;
 var warpPos = Vector2.ZERO;
+var warpFlip = false;
 
 var muteAudio = false;
 var masterBus;
@@ -59,10 +60,11 @@ func init_nodes():
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
 	
-func fadeto_scene(path, pos):
+func fadeto_scene(path, pos, flip):
 	fading = true;
 	fadeScene = path;
 	warpPos = pos;
+	warpFlip = flip;
 	var time = 0.3;
 	tweenNode.interpolate_property(self,"color", Color(1,1,1,1), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
@@ -110,6 +112,12 @@ func _deferred_goto_scene(path):
 	init_nodes();
 	if (playerNode):
 		playerNode.global_position = warpPos;
+		if (warpFlip):
+			playerNode.get_node("Sprite").flip_h = true;
+			playerNode.get_node("PlayerArea2D").scale.x = -1;
+		else:
+			playerNode.get_node("Sprite").flip_h = false;
+			playerNode.get_node("PlayerArea2D").scale.x = 1;
 
 func _process(_delta):
 	dialogOpen = false;

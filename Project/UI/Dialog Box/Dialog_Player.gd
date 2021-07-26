@@ -3,7 +3,7 @@ extends Node2D
 var label;
 var animPlayer;
 
-var dialog = "";
+export var dialog = "";
 var typed = "";
 var timer = 0;
 

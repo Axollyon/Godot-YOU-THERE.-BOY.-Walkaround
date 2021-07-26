@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lockers.png-21609f426b88b0fd2ea1ddb4c19ce125.stex"
+path="res://.import/rubble1.png-4ebbc6f9a99ab8704043c5067834722e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Hallway/lockers.png"
-dest_files=[ "res://.import/lockers.png-21609f426b88b0fd2ea1ddb4c19ce125.stex" ]
+source_file="res://Rooms/First Floor/rubble1.png"
+dest_files=[ "res://.import/rubble1.png-4ebbc6f9a99ab8704043c5067834722e.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/radiator.png-25bb5476397061f68d4ef7fcc800b11a.stex"
+path="res://.import/librarydoor.png-f5b80698d0b9b6f8a7b6069fe24d3f4b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Hallway/radiator.png"
-dest_files=[ "res://.import/radiator.png-25bb5476397061f68d4ef7fcc800b11a.stex" ]
+source_file="res://Rooms/First Floor/librarydoor.png"
+dest_files=[ "res://.import/librarydoor.png-f5b80698d0b9b6f8a7b6069fe24d3f4b.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hallway.png-3adda192793cee84006899dc187320d3.stex"
+path="res://.import/rubble2.png-a18e97973c13b2428e98b606aa3f8c31.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Hallway/hallway.png"
-dest_files=[ "res://.import/hallway.png-3adda192793cee84006899dc187320d3.stex" ]
+source_file="res://Rooms/Second Floor/rubble2.png"
+dest_files=[ "res://.import/rubble2.png-a18e97973c13b2428e98b606aa3f8c31.stex" ]
 
 [params]
 

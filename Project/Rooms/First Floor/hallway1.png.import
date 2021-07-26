@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/doors.png-e580ba90741f0183dcf58cefa83913cc.stex"
+path="res://.import/hallway1.png-bae40467254d50b0fdfed15e4e96a905.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Hallway/doors.png"
-dest_files=[ "res://.import/doors.png-e580ba90741f0183dcf58cefa83913cc.stex" ]
+source_file="res://Rooms/First Floor/hallway1.png"
+dest_files=[ "res://.import/hallway1.png-bae40467254d50b0fdfed15e4e96a905.stex" ]
 
 [params]
 

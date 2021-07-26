@@ -1,0 +1,255 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=4]
+[ext_resource path="res://Rooms/First Floor/hallway1.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/First Floor/rubble1.png" type="Texture" id=6]
+[ext_resource path="res://Rooms/First Floor/librarydoor.png" type="Texture" id=7]
+[ext_resource path="res://Rooms/First Floor/selfindulgence.png" type="Texture" id=8]
+[ext_resource path="res://Audio/Songs/empty.wav" type="AudioStream" id=10]
+
+[node name="Hallway" type="Node2D"]
+script = ExtResource( 3 )
+bgmTrack = ExtResource( 10 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -1010.0
+margin_top = -1048.0
+margin_right = 1668.0
+margin_bottom = 522.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Hallway" type="StaticBody2D" parent="YSort"]
+position = Vector2( 210, -1292 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Room" type="Sprite" parent="YSort/Hallway"]
+position = Vector2( 104, 1053 )
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Hallway"]
+position = Vector2( -210, 1292 )
+polygon = PoolVector2Array( 1348.99, 282.486, 1331.37, -46.5046, 1129.19, -41.0594, 1002.92, -40.6823, 1025.41, 119.932, 1029.91, 133.447, 1034.48, 157.962, 899.672, 162.372, 857.465, 161.112, 761.711, 163.317, 690.526, 162.372, 633.829, 159.537, 664.492, -39.8854, 328.603, -42.9564, 223.399, -41.6965, 70.9487, -45.1612, -122.969, -46.2615, -210.644, -45.1611, -580, -49.25, -735.006, -47.303, -729.333, -55.1452, -710.645, -106.37, -708.99, -112.745, -693.233, -150.503, -690.5, -152, -674.25, -195.25, -661.472, -223.798, -649.682, -252.669, -645.222, -250.439, -584.87, -253.412, -534.923, -254.453, -464.611, -253.412, -424.829, -255.129, -357.902, -254.007, -271.052, -255.831, -203.704, -253.586, -143.407, -257.012, -35.4365, -256.405, -13.9204, -257.795, 12.027, -257.461, 59.0219, -259.132, 67.0043, -258.568, 212.831, -258.419, 277.199, -259.772, 355.912, -258.369, 432.195, -258.008, 467.025, -259.2, 533.771, -256.154, 539.73, -257.876, 554.828, -257.081, 596.542, -258.58, 977.011, -256.998, 993.39, -255.423, 1289.58, -254.874, 1252.94, -766.212, -865.508, -775.319, -901.467, 279.49 )
+
+[node name="WindowInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Climb out of the window."
+width = 240
+dialogOrScene = "Forget being locked, can these windows even *be* opened? There's
+never been a latch or anything on any of them.
+
+Also, yknow, the fire. Which you may or may not have irons in."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/WindowInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( -48.7072, -796.371, -47.0255, -721.951, -47.3524, -665.834, -41.921, -665.273, -41.7045, -648.649, -47.1317, -632.367, -47.3677, -625.76, -76.6136, -547.623, -79.8265, -542.121, -96.2056, -538.341, -105.025, -519.442, -110.065, -518.497, -112.585, -548.42, -111.78, -571.756, -112.671, -605.61, -112.003, -628.996, -113.435, -688.024, -110.46, -697.784, -103.92, -707.892, -93.2168, -729.893, -85.3383, -743.271, -76.271, -763.636, -67.5007, -785.488, -59.0172, -800.043, -53.3475, -813.429, -47.8663, -814.24 )
+
+[node name="VentInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Get a look at this gusty indentation."
+width = 345
+dialogOrScene = "It's a vent.
+
+Nothing funny about it."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/VentInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( -55.4706, -453.135, -60.8099, -438.285, -75.4347, -400.289, -78.6167, -398.345, -91.1678, -369.707, -94.8801, -399.406, -93.8195, -429.458, -81.994, -456.867, -69.994, -480.617, -59.744, -496.367, -55.6374, -494.181 )
+
+[node name="OfficeDoorInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+scale = Vector2( 0.980347, 0.984416 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Cautiously open the office door."
+width = 305
+dialogOrScene = "Not implemented quite yet. Shh."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/OfficeDoorInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 398.069, -851.857, 397.615, -845.302, 399.174, -833.943, 399.62, -791.848, 400.956, -786.28, 401.624, -771.357, 400.288, -745.744, 402.07, -735.944, 401.826, -681.867, 405.202, -501.287, 384.765, -501.674, 341.318, -503.216, 307.261, -501.744, 251.357, -501.711, 252.233, -525.523, 250.228, -574.077, 251.006, -631.867, 249.006, -685.617, 251.256, -720.117, 249.612, -811.732, 252.689, -851.836, 268.404, -853.273, 350.843, -852.429, 373.056, -853.037 )
+
+[node name="SignInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Read the smaller sign."
+width = 225
+dialogOrScene = "Oh boy, it's your TEACHER's office. She had her conference in here
+earlier, but you have no idea if she's still present. Maybe the
+imminent end of the world drove her out, and she forgot about your
+detention? That's only best case scenario, though."
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/SignInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 473.294, -745.186, 475.291, -740.036, 476.342, -712.181, 474.345, -693.576, 460.365, -692.315, 436.715, -693.681, 433.982, -691.579, 424.101, -691.264, 418.32, -693.051, 417.269, -713.337, 418.955, -716.807, 417.374, -720.8, 418.393, -732.521, 417.557, -744.01, 444.178, -744.661, 459.314, -746.237 )
+
+[node name="SelfIndulgenceInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Admire the posted works."
+width = 240
+dialogOrScene = "It's a showcase of some drawings your classmates made in art class:
+a spaceship, a robot, and some mushroom thing looking out over a
+cliff.
+
+You wish you would get something you made posted up on here one day.
+You're always getting shafted."
+warpPos = Vector2( 4, 240 )
+zoomImage = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/SelfIndulgenceInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 868.637, -813.881, 870.604, -808.075, 869.609, -770.076, 870.553, -724.377, 868.674, -685.838, 871.795, -633.364, 873.505, -628.953, 864.586, -625.088, 848.532, -624.642, 815.828, -624.493, 756.963, -626.723, 695.124, -626.128, 691.556, -624.196, 655.583, -624.344, 589.731, -625.236, 573.567, -624.293, 526.95, -627.128, 528.085, -680.484, 527.155, -777.671, 526.408, -797.231, 527.299, -811.262, 585.737, -812.588, 603.817, -813.429, 646.492, -811.537, 670.668, -813.008, 737.309, -813.008, 776.2, -813.219, 806.683, -811.957, 818.778, -812.744 )
+
+[node name="ClosetDoorInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Forcibly open the door."
+width = 240
+dialogOrScene = "Locked. 
+
+And it's the janitorial closet, too. What are you trying to get out of this, the broom closet ending?"
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/ClosetDoorInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 1124.01, -858.117, 1125.76, -788.367, 1126.58, -679.708, 1124.5, -647.896, 1127.29, -644.797, 1126.84, -602.925, 1128.4, -573.971, 1129.34, -529.261, 1128.63, -504.336, 1107.42, -505.219, 1081.43, -506.457, 1038.12, -505.219, 975.898, -505.561, 976.256, -551.117, 975.031, -705.963, 973.532, -739.862, 974.469, -748.29, 973.158, -755.782, 974.469, -780.691, 973.532, -802.791, 973.39, -838.505, 975.335, -840.626, 975.511, -859.364, 1008.26, -857.367, 1056.51, -858.867 )
+
+[node name="StairsInteract" type="Area2D" parent="YSort"]
+position = Vector2( -479, -519 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Climb back up the stairs, for some reason."
+width = 385
+isWarp = true
+dialogOrScene = "res://Rooms/Second Floor/Second Floor.tscn"
+warpPos = Vector2( 1137, 71 )
+warpFlip = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StairsInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 1302.85, -506.584, 1304.01, -548.617, 1300.51, -673.367, 1303.26, -685.617, 1301.91, -715.491, 1302.15, -753.954, 1298.84, -796.664, 1301.2, -801.383, 1302.38, -859.904, 1330.37, -859.552, 1368.25, -860.082, 1415.92, -856.109, 1459.89, -857.434, 1527.04, -856.772, 1595.5, -854.851, 1593.61, -790.093, 1595.92, -670.265, 1595.11, -504.531, 1590.07, -504.9, 1585.69, -526.029, 1456.66, -527.664, 1455.77, -523.651, 1452.49, -519.249, 1444.36, -518.059, 1441.58, -515.876, 1435.83, -515.876, 1431.06, -519.448, 1430.39, -527.845, 1411.85, -526.256, 1368.41, -530.494, 1340.07, -528.905, 1319.15, -531.818, 1315.17, -516.191, 1310.94, -506.921 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 817.771, -209.958 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+position = Vector2( 0, -100 )
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Rubble" type="StaticBody2D" parent="YSort"]
+position = Vector2( 1099.64, -229.565 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Rubble"]
+position = Vector2( 165.362, 9.56543 )
+texture = ExtResource( 6 )
+
+[node name="RubbleInteract" type="Area2D" parent="YSort/Rubble"]
+position = Vector2( -1683.5, -1034 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Even more rubble - inspect it."
+width = 290
+dialogOrScene = "Just more collapsed drywall, bricks, and girders.
+
+The exit to the building was down this hallway. You could jump out
+the window, but that's straight into the fire. Might as well
+continue with this computer quest, but what does that have to do
+with escaping, anyways?"
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Rubble/RubbleInteract"]
+position = Vector2( -135.506, 766.117 )
+polygon = PoolVector2Array( 1951.49, 95.4361, 1959.62, 97.0271, 1966.87, 103.214, 1977.3, 107.634, 1977.65, 112.053, 1984.72, 113.291, 1993.38, 117.356, 1992.07, 127.223, 1979.8, 146.572, 1974.62, 157.085, 1980.08, 152.297, 1999.68, 142.608, 2003.58, 142.608, 2003.36, 145.838, 2024.4, 145.17, 2024.63, 147.508, 2056.81, 154.635, 2057.81, 158.211, 2061.21, 160.343, 2066.17, 178.749, 2075.37, 221.341, 2079.34, 221.712, 2080.23, 224.685, 2086.4, 226.395, 2097.4, 232.266, 2097.85, 235.462, 2105.68, 240.401, 2112.07, 245.592, 2127.22, 256.677, 2127.17, 259.315, 2125.87, 259.787, 2126.13, 289.373, 2124.83, 345.07, 2142.87, 361.948, 2148.37, 369.698, 2150.62, 381.323, 2142.74, 407.948, 2142.74, 413.823, 2146.24, 414.698, 2146.24, 419.448, 2138.74, 423.573, 2126.24, 428.948, 2117.99, 430.698, 2117.24, 435.448, 2083.74, 441.948, 2058.99, 442.198, 2046.36, 441.502, 2048.87, 453.073, 2039.1, 456.073, 2027.19, 458.963, 2021.88, 459.103, 1997.31, 455.391, 1981.49, 451.413, 1971.64, 447.396, 1971.59, 445.58, 1974.36, 445.429, 1963.68, 432.226, 1963.69, 424.689, 1941.17, 420.174, 1939.32, 413.553, 1940.64, 402.693, 1947, 396.601, 1968.85, 367.466, 1968.85, 362.831, 1987.79, 362.963, 1971.9, 357.401, 1955.53, 356.068, 1957.69, 359.439, 1957.59, 376.107, 1952.44, 383.973, 1946.69, 389.189, 1937.56, 390.192, 1930.43, 385.292, 1928.43, 378.721, 1916.18, 377.385, 1903.82, 372.374, 1897.47, 365.024, 1897.72, 358.818, 1902.59, 345.455, 1913.56, 309.941, 1917.57, 299.441, 1905.74, 291.948, 1900.37, 286.948, 1894.49, 285.573, 1889.74, 283.073, 1886.37, 286.073, 1863.99, 291.448, 1842.72, 290.521, 1831.81, 285.622, 1819.33, 274.881, 1817.51, 262.113, 1817.65, 257.062, 1822.47, 239.469, 1837.85, 198.103, 1844.79, 186.317, 1847.78, 188.643, 1854.45, 188.309, 1867.22, 191.73, 1890.32, 200.489, 1902.88, 180.819, 1938.23, 120.538 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Rubble"]
+position = Vector2( 0.5, -11 )
+polygon = PoolVector2Array( 15.9998, 30.9527, 25.1857, 33.7631, 39.6068, 34.5123, 48.5967, 34.325, 67.3254, 28.8936, 69.5959, 26.5441, 80.8208, 30.1921, 86.9241, 35.2432, 98.8503, 42.6094, 96.886, 45.9066, 78.2894, 101.711, 77.9921, 107.657, 83.3435, 114.793, 97.7672, 120.538, 108.681, 122.32, 120.674, 146.081, 119.637, 152.839, 121.64, 163.637, 143.729, 167.947, 144.083, 174.664, 153.099, 190.397, 161.407, 194.64, 194.178, 283.038, 488.862, -57.4346, 47.8623, -148.435, 28.3606, -25.9829, 0.45459, -7.62863, -2.16748, 2.29767, -0.856445, 6.97986, -2.16748, 11.1002, 0.668945, 17.482 )
+
+[node name="LibraryDoorInteract" type="Area2D" parent="YSort"]
+position = Vector2( -137, 413 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+command = "> Triumphantly push open the library doors."
+width = 375
+dialogOrScene = "These are also locked?!
+
+What now? Maybe you can nab a key from around here, somewhere?"
+warpPos = Vector2( 4, 240 )
+
+[node name="Sprite" type="Sprite" parent="YSort/LibraryDoorInteract"]
+position = Vector2( 972, -422 )
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/LibraryDoorInteract"]
+position = Vector2( -477.506, -165.883 )
+polygon = PoolVector2Array( 1302.63, -434.47, 1371.88, -432.496, 1476.55, -435.021, 1595.86, -433.391, 1598.51, -428.867, 1599.37, -249.181, 1601.62, -82.5961, 1579.62, -79.6231, 1466.32, -79.0775, 1300.84, -78.744, 1298.2, -167.922 )
+
+[node name="UI" parent="." instance=ExtResource( 1 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 817.771, -309.958 )
+current = true
+limit_left = -803
+limit_top = -700
+limit_right = 1284
+limit_bottom = 224
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.05
+drag_margin_right = 0.1
+drag_margin_bottom = 0.05
+
+[connection signal="mouse_entered" from="YSort/WindowInteract" to="YSort/WindowInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/WindowInteract" to="YSort/WindowInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/VentInteract" to="YSort/VentInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/VentInteract" to="YSort/VentInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/OfficeDoorInteract" to="YSort/OfficeDoorInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/OfficeDoorInteract" to="YSort/OfficeDoorInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/SignInteract" to="YSort/SignInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/SignInteract" to="YSort/SignInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/SelfIndulgenceInteract" to="YSort/SelfIndulgenceInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/SelfIndulgenceInteract" to="YSort/SelfIndulgenceInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/ClosetDoorInteract" to="YSort/ClosetDoorInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/ClosetDoorInteract" to="YSort/ClosetDoorInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/StairsInteract" to="YSort/StairsInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/StairsInteract" to="YSort/StairsInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/Rubble/RubbleInteract" to="YSort/Rubble/RubbleInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/Rubble/RubbleInteract" to="YSort/Rubble/RubbleInteract" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="YSort/LibraryDoorInteract" to="YSort/LibraryDoorInteract" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/LibraryDoorInteract" to="YSort/LibraryDoorInteract" method="_on_mouse_exited"]

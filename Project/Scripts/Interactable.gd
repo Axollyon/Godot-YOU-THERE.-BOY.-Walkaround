@@ -6,6 +6,7 @@ export var width = 552;
 export var isWarp = false;
 export (String, MULTILINE) var dialogOrScene = "";
 export var warpPos = Vector2.ZERO;
+export var warpFlip = false;
 export (Texture) var zoomImage;
 
 var selected = false;
@@ -42,5 +43,6 @@ func _process(_delta):
 		commandBoxInstance.get_node("CommandBox/NinePatchRect/MarginContainer/RichTextLabel").bbcode_text = "";
 		commandBoxInstance.isWarp = isWarp;
 		commandBoxInstance.warpPos = warpPos;
+		commandBoxInstance.warpFlip = warpFlip;
 		commandBoxInstance.dialogOrScene = dialogOrScene;
 		commandBoxInstance.zoomImage = zoomImage;
