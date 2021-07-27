@@ -30,6 +30,8 @@ var warpFlip = false;
 var muteAudio = false;
 var masterBus;
 
+var warpConds = {};
+
 func _ready():
 	tweenNode = Tween.new();
 	add_child(tweenNode);

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Rooms/Second Floor/doors.png" type="Texture" id=9]
 [ext_resource path="res://Audio/Songs/empty.wav" type="AudioStream" id=10]
 [ext_resource path="res://Rooms/Second Floor/flameborhood.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/ConditionInteractable.gd" type="Script" id=12]
 
 [node name="Hallway" type="Node2D"]
 script = ExtResource( 3 )
@@ -193,12 +194,18 @@ polygon = PoolVector2Array( 1219.59, -768.329, 1216.72, -768.596, 1216.51, -765.
 position = Vector2( -479, -519 )
 collision_layer = 4
 collision_mask = 4
-script = ExtResource( 4 )
-command = "> Do a sick slide down the railing."
-width = 310
-isWarp = true
-dialogOrScene = "res://Rooms/First Floor/First Floor.tscn"
-warpPos = Vector2( 767, -233 )
+script = ExtResource( 12 )
+dictKey = "stairs"
+firstCommand = "> Do a sick slide down the railing."
+firstWidth = 310
+firstIsWarp = true
+firstDialogOrScene = "res://Rooms/First Floor/First Floor.tscn"
+firstWarpPos = Vector2( 767, -233 )
+secondCommand = "> Walk back downstairs, very carefully this time."
+secondWidth = 425
+secondIsWarp = true
+secondDialogOrScene = "res://Rooms/First Floor/First Floor.tscn"
+secondWarpPos = Vector2( 767, -233 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StairsInteract"]
 position = Vector2( -135.506, 766.117 )

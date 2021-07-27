@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Rooms/First Floor/rubble1.png" type="Texture" id=6]
 [ext_resource path="res://Rooms/First Floor/librarydoor.png" type="Texture" id=7]
 [ext_resource path="res://Rooms/First Floor/selfindulgence.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/ConditionInteractable.gd" type="Script" id=9]
 [ext_resource path="res://Audio/Songs/empty.wav" type="AudioStream" id=10]
 
 [node name="Hallway" type="Node2D"]
@@ -201,13 +202,19 @@ polygon = PoolVector2Array( 15.9998, 30.9527, 25.1857, 33.7631, 39.6068, 34.5123
 position = Vector2( -137, 413 )
 collision_layer = 4
 collision_mask = 4
-script = ExtResource( 4 )
-command = "> Triumphantly push open the library doors."
-width = 375
-dialogOrScene = "These are also locked?!
+script = ExtResource( 9 )
+dictKey = "library"
+firstCommand = "> Triumphantly push open the library doors."
+firstWidth = 375
+firstDialogOrScene = "These are also locked?!
 
 What now? Maybe you can nab a key from around here, somewhere?"
-warpPos = Vector2( 4, 240 )
+secondCommand = "> Unlock the library doors!"
+secondWidth = 250
+secondIsWarp = true
+secondDialogOrScene = "res://Rooms/Second Floor/Second Floor.tscn"
+secondWarpPos = Vector2( 1137, 71 )
+secondWarpFlip = true
 
 [node name="Sprite" type="Sprite" parent="YSort/LibraryDoorInteract"]
 position = Vector2( 972, -422 )
