@@ -1,6 +1,7 @@
 extends Area2D
 
 export var dictKey = "";
+export var setOnUse = false;
 
 export (String, MULTILINE) var firstCommand = "";
 export var firstWidth = 552;
@@ -64,6 +65,8 @@ func _process(_delta):
 			warpFlip = secondWarpFlip;
 			dialogOrScene = secondDialogOrScene;
 			zoomImage = secondZoomImage;
+		elif (setOnUse):
+			commandBoxInstance.dictKey = dictKey;
 		
 		if (click.x + width > right):
 			click.x = right - width;

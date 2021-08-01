@@ -9,6 +9,24 @@ var velocity = Vector2.ZERO
 var facing = "Front";
 var last_mouse_pos = null
 
+var mainCommand = "> Who's this?";
+var mainWidth = 135;
+var mainDialog = "It's you!\n\nWhy don't you try interacting with some of the other things around here?";
+
+var stairsCommand = "> Is he going to be okay?"
+var stairsWidth = 230;
+var stairsDialog = "Maybe he just needs a moment, give him some space. It's not every\nday a kid's dreams of being a professional railing slider are\ncrushed.\n\nAnd his bones, too, of course.";
+
+func _process(_delta):
+	if ($PlayerArea2D.command == mainCommand && $AnimationPlayer.current_animation == "itoldyoubro"):
+		$PlayerArea2D.command = stairsCommand;
+		$PlayerArea2D.width = stairsWidth;
+		$PlayerArea2D.dialogOrScene = stairsDialog;
+	elif ($PlayerArea2D.command == stairsCommand && $AnimationPlayer.current_animation != "itoldyoubro"):
+		$PlayerArea2D.command = mainCommand;
+		$PlayerArea2D.width = mainWidth;
+		$PlayerArea2D.dialogOrScene = mainDialog;
+
 func _physics_process(_delta):
 	movement()
 	velocity = move_and_slide(velocity)
@@ -17,8 +35,8 @@ func movement():
 	if (Global.fading || Global.imageOpen):
 		direction = Vector2.ZERO;
 	else:
-		keyMovement()
-		mouseMovement()
+		keyMovement();
+		mouseMovement();
 	
 	if (direction != Vector2.ZERO):
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION)
@@ -27,7 +45,8 @@ func movement():
 	
 	# Controls player right and left animation sprites using velocity.
 	if (velocity == Vector2.ZERO):
-		$AnimationPlayer.play("still" + facing)
+		if ($AnimationPlayer.current_animation != "itoldyoubro"):
+			$AnimationPlayer.play("still" + facing)
 	else:
 		if !(Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_right")) || (velocity.x != 0 && last_mouse_pos != null):
 			if Input.is_action_pressed("ui_right") || (velocity.x > 0 && last_mouse_pos != null):

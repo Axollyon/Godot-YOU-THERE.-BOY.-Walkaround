@@ -13,6 +13,8 @@ var warpPos = Vector2.ZERO;
 var warpFlip = false;
 var zoomImage;
 
+var dictKey = "";
+
 var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
@@ -45,6 +47,8 @@ func _exit_tree():
 func _on_gui_input(event):
 	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		Global.remove_commands();
+		if (dictKey != ""):
+			Global.warpConds[dictKey] = true;
 		if (isWarp):
 			Global.fadeto_scene(dialogOrScene, warpPos, warpFlip);
 		elif (zoomImage && Global.imagesNode):

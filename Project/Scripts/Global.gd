@@ -21,6 +21,7 @@ var dialogOpen = false;
 var dialogDone = false;
 var dialogClosing = false;
 
+var lastScene = "";
 var fadeScene = "";
 var fading = false;
 var fadedOut = false;
@@ -62,7 +63,11 @@ func init_nodes():
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
 	
+	if (currentScene.has_method("on_load")):
+		currentScene.on_load();
+	
 func fadeto_scene(path, pos, flip):
+	lastScene = currentScene.filename;
 	fading = true;
 	fadeScene = path;
 	warpPos = pos;
@@ -76,6 +81,8 @@ func _on_tween_completed(_object, _key):
 		if (fadedOut):
 			fadedOut = false;
 			fading = false;
+			if (currentScene.has_method("on_entry")):
+				currentScene.on_entry();
 		else:
 			fadedOut = true;
 			goto_scene(fadeScene);

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Room.gd" type="Script" id=3]
+[ext_resource path="res://Rooms/First Floor/First Floor.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=4]
 [ext_resource path="res://Rooms/First Floor/hallway1.png" type="Texture" id=5]
 [ext_resource path="res://Rooms/First Floor/rubble1.png" type="Texture" id=6]
@@ -82,8 +82,9 @@ collision_mask = 4
 script = ExtResource( 4 )
 command = "> Cautiously open the office door."
 width = 305
-dialogOrScene = "Not implemented quite yet. Shh."
-warpPos = Vector2( 4, 240 )
+isWarp = true
+dialogOrScene = "res://Rooms/Office/Office.tscn"
+warpPos = Vector2( 70, 77 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/OfficeDoorInteract"]
 position = Vector2( -135.506, 766.117 )
@@ -118,7 +119,7 @@ a spaceship, a robot, and some mushroom thing looking out over a
 cliff.
 
 You wish you would get something you made posted up on here one day.
-You're always getting shafted."
+You're always getting the short end of the stick."
 warpPos = Vector2( 4, 240 )
 zoomImage = ExtResource( 8 )
 
