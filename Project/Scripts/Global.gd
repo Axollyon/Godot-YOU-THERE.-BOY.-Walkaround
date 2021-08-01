@@ -32,6 +32,7 @@ var muteAudio = false;
 var masterBus;
 
 var warpConds = {};
+var playerDialog = 0;
 
 func _ready():
 	tweenNode = Tween.new();

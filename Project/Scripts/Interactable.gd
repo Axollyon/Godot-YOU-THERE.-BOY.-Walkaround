@@ -1,5 +1,7 @@
 extends Area2D
 
+var isPlayer = false;
+
 export (String, MULTILINE) var command = "";
 export var width = 552;
 
@@ -37,6 +39,8 @@ func _process(_delta):
 		var right = (-cTrans.get_origin() / cScale + get_viewport().size / cScale).x;
 		if (click.x + width > right):
 			click.x = right - width;
+		if (isPlayer):
+			commandBoxInstance.dictKey = "player";
 		commandBoxInstance.global_position = click;
 		commandBoxInstance.command = command;
 		commandBoxInstance.get_node("CommandBox").rect_size.x = width;
