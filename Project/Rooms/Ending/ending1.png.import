@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stairscc1.png-cc34bb93f7b45b5a1cdaa09c31513ac2.stex"
+path="res://.import/ending1.png-db5a6946b25573862babbad5e98fe745.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Misc/stairscc1.png"
-dest_files=[ "res://.import/stairscc1.png-cc34bb93f7b45b5a1cdaa09c31513ac2.stex" ]
+source_file="res://Rooms/Ending/ending1.png"
+dest_files=[ "res://.import/ending1.png-db5a6946b25573862babbad5e98fe745.stex" ]
 
 [params]
 

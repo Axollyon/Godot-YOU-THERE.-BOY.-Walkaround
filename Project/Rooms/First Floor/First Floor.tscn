@@ -213,7 +213,7 @@ What now? Maybe you can nab a key from around here, somewhere?"
 secondCommand = "> Unlock the library doors!"
 secondWidth = 250
 secondIsWarp = true
-secondDialogOrScene = "res://Rooms/Second Floor/Second Floor.tscn"
+secondDialogOrScene = "res://Rooms/Ending/Ending.tscn"
 secondWarpPos = Vector2( 1137, 71 )
 secondWarpFlip = true
 
