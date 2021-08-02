@@ -46,6 +46,8 @@ func _ready():
 	var root = get_tree().get_root();
 	currentScene = root.get_child(root.get_child_count() - 1);
 	init_nodes();
+	if (currentScene.has_method("on_entry")):
+		currentScene.on_entry();
 	
 func mute_audio(mute):
 	muteAudio = mute;
@@ -59,10 +61,6 @@ func init_nodes():
 	commandsNode = currentScene.get_node_or_null("UI/Commands");
 	imagesNode = currentScene.get_node_or_null("UI/Images");
 	dialogsNode = currentScene.get_node_or_null("UI/Dialogs");
-	
-	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
-		audioNode.stream = currentScene.bgmTrack;
-		audioNode.play();
 	
 	if (currentScene.has_method("on_load")):
 		currentScene.on_load();
@@ -128,6 +126,12 @@ func _deferred_goto_scene(path):
 		else:
 			playerNode.get_node("Sprite").flip_h = false;
 			playerNode.get_node("PlayerArea2D").scale.x = 1;
+			
+func restart():
+	var startPos = Vector2(-610, -302);
+	fadeto_scene(ProjectSettings.get_setting("application/run/main_scene"), startPos, false);
+	warpConds = {};
+	playerDialog = 0;
 
 func _process(_delta):
 	dialogOpen = false;
@@ -150,6 +154,12 @@ func _process(_delta):
 		Input.set_custom_mouse_cursor(load("res://UI/cursor.png"))
 	
 	mouseMove = !mouseHover && !dialogOpen && !fading;
+	
+	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
+		audioNode.stream = currentScene.bgmTrack;
+		audioNode.play();
+	if ("bgmVolume" in currentScene && audioNode.volume_db != linear2db(currentScene.bgmVolume)):
+		audioNode.volume_db = linear2db(currentScene.bgmVolume);
 		
 func remove_commands():
 	if (commandsNode):
