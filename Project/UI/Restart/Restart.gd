@@ -2,9 +2,6 @@ extends Node2D
 
 var selected = false;
 
-var texOn = load("res://UI/Audio/audio_on.png")
-var texMute = load("res://UI/Audio/audio_mute.png")
-
 var faded = false;
 	
 func _on_mouse_entered()->void:
